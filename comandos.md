@@ -51,28 +51,30 @@ DECLARE pi CONSTANT REAL := 3.141593;
 ```
 
 # Apelidos
-### Normalmente, é bastante útil criar apelidos para os parâmetros, para que possam ser usadosno corpo da função. Isto é feito através da cláusula ALIAS FOR:
+Normalmente, é bastante útil criar apelidos para os parâmetros, para que possam ser usadosno corpo da função. Isto é feito através da cláusula ALIAS FOR:
 ```plpgsql
 DECLARE saldo ALIAS FOR $1;
         saque ALIAS FOR $2;
 ```
 
 # Tipos Especiais
-## Há 3 tipos (pseudo-tipos) de dados que se adaptam aos tipos originais de um atributo ou de uma tupla de uma tabela, ou ainda do conjunto de atributos de um result set.
 
-### O tipo %TYPE permite que se defina uma variável com o mesmo tipo de outra variável ou com o mesmo tipo de um atributo específico de uma tabela. Ex:
+Há 3 tipos (pseudo-tipos) de dados que se adaptam aos tipos originais de um atributo ou de uma tupla de uma tabela, ou ainda do conjunto de atributos de um result set.
+
+O tipo %TYPE permite que se defina uma variável com o mesmo tipo de outra variável ou com o mesmo tipo de um atributo específico de uma tabela. Ex:
 ```plpgsql
 DECLARE endereço1 CHAR(25);
         endereço2 endereço1%TYPE;
         desconto Produto.preço%TYPE;
 ```
-### O tipo %ROWTYPE permite que se defina uma variável do tipo registro, possuindo os mesmos campos de uma determinada tabela.Ex:
+O tipo %ROWTYPE permite que se defina uma variável do tipo registro, possuindo os mesmos campos de uma determinada tabela.Ex:
 ```plpgsql
 DECLARE um_cliente Cliente%ROWTYPE;
 ```
-### O tipo RECORD permite que se defina uma variável do tipo registro, cuja estrutura será determinada em tempo de execução, adaptando-se aos dados  que se deseja armazenar na mesma.
+O tipo RECORD permite que se defina uma variável do tipo registro, cuja estrutura será determinada em tempo de execução, adaptando-se aos dados  que se deseja armazenar na mesma.
 
 # Atribuições
+
 Atribuições permitem que se estabeleça um novo valor para uma variável. O operador utilizado é := . Ex:
 ```plpgsql
 saldo := saldo + saque;
