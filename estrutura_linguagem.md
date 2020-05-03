@@ -1,6 +1,6 @@
 # Estrutura da linguagem Pl/pgsql
 ```plpgsql
-CREATE [OR REPLACE] FUNCTION nome ([tipo_param1],[tipo_param2],...)
+CREATE OR REPLACE FUNCTION nome ([tipo_param1],[tipo_param2],...)
 RETURNS tipo_retorno
 AS
 '
